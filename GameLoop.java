@@ -13,7 +13,7 @@ public class GameLoop {
 		System.out.println("You have selected " + numPlayers + " players. How many decks would you like to use? (108 cards in a deck)");
 		int numDecks = scan.nextInt();
 		Deck deck = new Deck(numDecks);
-		Hand[] players = this.dealHands(deck, numPlayers, 1);
+		Hand[] players = this.dealHands(deck, numPlayers, 0);
 		winner = this.playGame(players, deck);
 		System.out.println("The winner is player " + (winner + 1) + ", congradulations!");
 		//		System.out.println("Would you like to play again?");
@@ -269,7 +269,6 @@ public class GameLoop {
 				System.out.println("The computer played: " + topCard);
 				players[currentPlayer].removeCard(card);
 			}
-			System.out.println(players[1]);
 			for(int i = 0 ; i < players.length ; i ++){
 				if(players[i].getHand().length == 0){
 					winner = i;
